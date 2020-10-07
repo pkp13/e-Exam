@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+    {% block body_block %}
+        {% if registered %}
+            <h1>Thankyou for signing up</h1>
+        {% else %}
+            <h1>Register here</h1>
+            <h3>Fillout this form</h3>
+
+            <form enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+                {{ user_form.as_p }}
+                {{ profile_form.as_p }}
+                <input type="submit" value="Signup">
+            </form>
+        {% endif %}
+    {% endblock %}

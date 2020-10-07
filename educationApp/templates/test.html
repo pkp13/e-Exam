@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+    {% block body_block %}
+        <h1>Basic Test</h1>
+        <input type="button" value="Click To Start" method="POST">
+        {% if start %}
+            {% for single_question in question %}
+                <table>
+                    <tr>
+                        <td>{{ single_question.questionDescription }}</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" name="{{single_question.id}}" value="{{single_question.optionA}}">A: {{single_question.optionA}}</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" name="{{single_question.id}}" value="{{single_question.optionB}}">B: {{single_question.optionB}}</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" name="{{single_question.id}}" value="{{single_question.optionC}}">C: {{single_question.optionC}}</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" name="{{single_question.id}}" value="{{single_question.optionD}}">D: {{single_question.optionD}}</td>
+                    </tr>
+                    
+                    {% if submited %}
+                        <tr>
+                            <td>Correct Option: {{single_question.answere}}</td>
+                        </tr>
+                        <tr>
+                            <td>Description: {{single_question.answereDescription}}</td>
+                        </tr>
+                    
+                    {% endif %}
+                    
+                </table>
+                <hr>
+
+            {% endfor %}
+        {% endif %}
+
+    {% endblock %}
