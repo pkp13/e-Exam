@@ -12,6 +12,6 @@ def onlineTest(request):
     
     start = False
     return render(request, 'test.html', {'question': testQuestion,
-                                            'submited': False,
+                                            'submited': True,
                                             'start': True,
                                         })
